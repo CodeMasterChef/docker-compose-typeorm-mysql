@@ -1,0 +1,31 @@
+version: '3'
+services:
+  app:
+    image: node:11
+    container_name: "typeorm-app"
+    volumes:
+      - .:/var/www/
+    working_dir: /var/www/
+    command: npm start
+    ports:
+      - 3100:3000
+    environment:
+      DB_HOST: db
+      DB_PORT: 3306
+      DB_USERNAME: "admin"
+      DB_PASSWORD: "adminpw"
+      DB_DATABASE: "typeorm"
+    links:
+      - db
+  db:
+    image: "mysql:5.7.24"
+    container_name: "typeorm-db"
+    ports:
+      - "3307:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: "rootpw"
+      MYSQL_USER: "admin"
+      MYSQL_PASSWORD: "adminpw"
+      MYSQL_DATABASE: " "
+
+
