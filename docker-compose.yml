@@ -26,6 +26,6 @@ services:
       MYSQL_ROOT_PASSWORD: "rootpw"
       MYSQL_USER: "admin"
       MYSQL_PASSWORD: "adminpw"
-      MYSQL_DATABASE: " "
+      MYSQL_DATABASE: "typeorm"
 
 
